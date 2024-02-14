@@ -1,0 +1,261 @@
+.login {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.login .div {
+    background-color: #ffffff;
+    width: 360px;
+    height: 800px;
+    position: relative;
+}
+
+.login .overlap-group {
+    width: 214px;
+    height: 40px;
+    top: 349px;
+    border-radius: 10px;
+    position: absolute;
+    left: 73px;
+}
+
+.login .rectangle {
+    height: 40px;
+    background-color: #152d55;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: #000000;
+    position: absolute;
+    width: 214px;
+    top: 0;
+    left: 0;
+}
+
+.login .text-wrapper {
+    position: absolute;
+    width: 214px;
+    height: 19px;
+    top: 9px;
+    left: 0;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .overlap {
+    width: 214px;
+    height: 40px;
+    top: 245px;
+    position: absolute;
+    left: 73px;
+}
+
+.login .img {
+    height: 40px;
+    position: absolute;
+    width: 214px;
+    top: 0;
+    left: 0;
+}
+
+.login .text-wrapper-2 {
+    position: absolute;
+    width: 161px;
+    height: 22px;
+    top: 8px;
+    left: 14px;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-weight: 700;
+    color: #f2f2f2;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .overlap-2 {
+    width: 214px;
+    height: 40px;
+    top: 297px;
+    position: absolute;
+    left: 73px;
+}
+
+.login .p {
+    position: absolute;
+    width: 214px;
+    top: 221px;
+    left: 73px;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .text-wrapper-3 {
+    position: absolute;
+    width: 214px;
+    top: 401px;
+    left: 73px;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .overlap-3 {
+    width: 202px;
+    height: 13px;
+    top: 523px;
+    position: absolute;
+    left: 73px;
+}
+
+.login .text-wrapper-4 {
+    position: absolute;
+    width: 155px;
+    top: 0;
+    left: 0;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .text-wrapper-5 {
+    position: absolute;
+    width: 85px;
+    top: 0;
+    left: 117px;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-weight: 700;
+    color: #152d55;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .group {
+    position: absolute;
+    width: 216px;
+    height: 13px;
+    top: 428px;
+    left: 73px;
+}
+
+.login .text-wrapper-6 {
+    position: absolute;
+    width: 20px;
+    top: 0;
+    left: 97px;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-weight: 700;
+    color: #c2bcbb;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .vector {
+    top: 6px;
+    left: 0;
+    position: absolute;
+    width: 97px;
+    height: 1px;
+    object-fit: cover;
+}
+
+.login .vector-2 {
+    top: 8px;
+    left: 117px;
+    position: absolute;
+    width: 97px;
+    height: 1px;
+    object-fit: cover;
+}
+
+.login .overlap-4 {
+    width: 214px;
+    height: 45px;
+    top: 460px;
+    border-radius: 10px;
+    position: absolute;
+    left: 73px;
+}
+
+.login .rectangle-2 {
+    height: 45px;
+    background-color: #c2bcbb;
+    border-radius: 10px;
+    position: absolute;
+    width: 214px;
+    top: 0;
+    left: 0;
+}
+
+.login .text-wrapper-7 {
+    position: absolute;
+    width: 125px;
+    top: 15px;
+    left: 54px;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 11px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+}
+
+.login .element {
+    position: absolute;
+    width: 36px;
+    height: 30px;
+    top: 11px;
+    left: 17px;
+    object-fit: cover;
+}
+
+.login .arrow-logo {
+    position: absolute;
+    width: 6px;
+    height: 14px;
+    top: 17px;
+    left: 195px;
+}
+
+.login .home-indicator {
+    position: absolute;
+    width: 328px;
+    height: 21px;
+    top: 772px;
+    left: 16px;
+}
+
+.login .home-indicator-2 {
+    position: relative;
+    width: 139px;
+    height: 5px;
+    top: 8px;
+    left: 94px;
+    background-color: var(--threads-palette-black);
+    border-radius: 100px;
+    transform: rotate(180deg);
+}
