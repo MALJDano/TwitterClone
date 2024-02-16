@@ -1,68 +1,120 @@
 const username = localStorage.getItem("username");
 const token = localStorage.getItem("token");
 
-//window.onload = async () => {
-console.log(username);
+console.log(username);  
 console.log(token);
-//}
 
-
-// JS Test
-let userToken;
-let tweets = [];
-
-function renderUser() {
-    document.getElementById('user-info').innerHTML = `
-        <p>Username: joblipat</p>
-        <p>Followers: 100</p>
-        <p>Following: 50</p>
-    `;
+window.onload = async () => {
+    await displayPosts();
 }
 
-function renderTweets() {
-    const tweetListElement = document.getElementById('tweet-list');
-    tweetListElement.innerHTML = "";
-    tweets.forEach(tweet => {
-        const li = document.createElement('li');
-        li.textContent = `${tweet.username}: ${tweet.text} (${tweet.likes} likes)`;
-        const likeButton = document.createElement('button');
-        likeButton.textContent = 'Like';
-        likeButton.onclick = () => likeTweet(tweet.id);
-        li.appendChild(likeButton);
-        tweetListElement.appendChild(li);
+async function displayPosts() {
+    const posts = await getPosts();
+    const tweetList = document.getElementById("tweet-list");
+
+    // Clear existing content in the tweet list
+    tweetList.innerHTML = "";
+
+    // Iterate over each post and create HTML elements to display them
+    posts.forEach(post => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+            <strong>Post ID:</strong> ${post.postId}<br>
+            <strong>Posted by:</strong> ${post.postedBy}<br>
+            <strong>Content:</strong> ${post.content}<br>
+            <strong>Date and Time Posted:</strong> ${new Date(post.dateTimePosted).toLocaleString()}<br>
+            <strong>Total Likes:</strong> ${post.likes.length} <br>
+            <button onclick="likePost('${post.postId}')">Like</button><br>
+            <hr>
+        `;
+        tweetList.appendChild(li);
     });
 }
 
-function postTweet() {
-    const tweetText = document.getElementById('tweet-text').value;
-    const newTweet = {
-        id: tweets.length + 1,
-        username: "joblipat",
-        text: tweetText,
-        likes: 0,
-    };
-    tweets.unshift(newTweet);
-    renderTweets();
+async function getPosts() {
+    const response = await fetch("/api/v1/posts", {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
+    const posts = await response.json();
+    return posts;
 }
 
-function likeTweet(tweetId) {
-    const tweet = tweets.find(t => t.id === tweetId);
-    if (tweet) {
-        tweet.likes++;
-        renderTweets();
+async function createPost() {
+    const tweetText = document.getElementById('tweet-text').value;
+
+    const raw = JSON.stringify({
+        "content": tweetText
+    });
+
+    const requestOptions = {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+        },
+        body: raw,
+    };
+
+    try {
+        const response = await fetch("/api/v1/posts", requestOptions);
+        if (response.ok) {
+            alert("Post created successfully!");
+            // Refresh the post list after successful creation
+            await displayPosts();
+        } else {
+            alert("Failed to create post. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error creating post:", error);
+        alert("An error occurred while creating post. Please try again later.");
     }
 }
 
-function start() {
-    renderUser();
-    // Simulating initial tweets
-    tweets = [
-        { id: 1, username: 'user1', text: 'This is a tweet!', likes: 5 },
-        { id: 2, username: 'user2', text: 'Another tweet!', likes: 10 },
-    ];
-    renderTweets();
+async function likePost(postId) {
+    // Check if the post is already liked by the user
+    const posts = await getPosts();
+    const likedPost = posts.find(post => post.postId === postId && post.likes.includes(username));
+    
+    let requestOptions;
+    if (likedPost) {
+        // Unlike the post if it's already liked
+        requestOptions = {
+            method: "PATCH",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "action": "unlike"
+            })
+        };
+    } else {
+        // Like the post if it's not already liked
+        requestOptions = {
+            method: "PATCH",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "action": "like"
+            })
+        };
+    }
+
+    try {
+        const response = await fetch(`/api/v1/posts/${postId}`, requestOptions);
+        if (response.ok) {
+            // Refresh the post list after successful like/unlike
+            await displayPosts();
+        } else {
+            alert("Failed to like/unlike post. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error liking/unliking post:", error);
+        alert("An error occurred while liking/unliking post. Please try again later.");
+    }
 }
-
-start();
-
-
