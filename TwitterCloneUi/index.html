@@ -16,34 +16,33 @@
             <img src="assets/img/iTrendLogo.png" alt="iTrend Logo" style="width: 40px; height: 36px; margin-bottom: 20px;">
             <div class="sidebarOption active">
                 <span class="material-icons">home</span>
-                <h2>Home</h2>
-            </div>
-            <div class="sidebarOption">
-                <span class="material-icons"> search </span>
-                <h2>Explore</h2>
+                <h2 onclick="location.reload()">Home</h2>
             </div>
             <div class="sidebarOption" >
                 <span class="material-icons"> perm_identity </span>
-                <h2>Profile</h2>
+                <h2 onclick="displayUserPosts()">Profile</h2>
             </div>
-            <div class="sidebarOption">
-                <span class="material-icons"> create </span>
-                <h2>Post</h2>
-            </div>
-            <br><br><br>
+            <br><br>
             <br><br>          
             <div id="follow-form"> 
-                <h2>Who to Follow</h2>
+                <h3 style="margin-left:1rem;">Who to Follow</h3>
                 <ul id="follow-list"> </ul>
             </div>
+            <br>
             <div class="trending-hashtags">
                 <h2>Trends for you</h2>
                 <ul class="hashtag-list">
-                  <li><a href="#">#BeaAlonzoBreak</a>
+                  <li>
+                    <h3>Trending</h3>
+                    <a href="#">#BeaAlonzoBreakUp</a>
+                    <h3>Only on iTrend • Trending</h3>
                     <a href="#">#Valentine</a>
+                    <h3>Famous Singer • Trending</h3>
                     <a href="#">#TaylorSwift</a>
+                    <h3>Action Games • Trending</h3>
                     <a href="#">#Valorant</a>
-                    <a href="#">#Summer</a>
+                    <h3>Trending</h3>
+                    <a href="#">#SummerNa</a>
                 </li>
 
                 </ul>
@@ -54,7 +53,7 @@
         <!--feed -->
         <div class="content">
             <div class="profile-header">
-                <h1>HOME</h1>
+                <h1 id="home-label">HOME</h1>
                 <a href="login.html" style="text-decoration: none; color:  #1f2029;">Log Out</a>
             </div>
 
