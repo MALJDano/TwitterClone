@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.twitter-navbar {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
+.navbar-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.navbar-icon:hover {
+    opacity: 0.7;
+}
