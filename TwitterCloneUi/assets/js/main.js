@@ -184,8 +184,8 @@ async function followUser(followingUsername) {
     try {
         const response = await fetch(`/api/v1/users/${username}/following/${followingUsername}`, requestOptions);
         if (response.ok) {
-            // Refresh the follow list after successful follow
-            await displayAccounts();
+            // Refresh the page after successful follow
+            location.reload();
         } else {
             alert("Failed to follow user. Please try again.");
         }
@@ -206,8 +206,8 @@ async function unfollowUser(followingUsername) {
     try {
         const response = await fetch(`/api/v1/users/${username}/following/${followingUsername}`, requestOptions);
         if (response.ok) {
-            // Refresh the follow list after successful unfollow
-            await displayAccounts();
+            // Refresh the page after successful unfollow
+            location.reload();
         } else {
             alert("Failed to unfollow user. Please try again.");
         }
@@ -216,4 +216,3 @@ async function unfollowUser(followingUsername) {
         alert("An error occurred while unfollowing user. Please try again later.");
     }
 }
-
