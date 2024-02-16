@@ -19,10 +19,12 @@ async function displayPosts() {
     posts.forEach(post => {
         const li = document.createElement("li");
         li.innerHTML = `
+            <strong>Post ID:</strong> ${post.postId}<br>
             <strong>Posted by:</strong> ${post.postedBy}<br>
             <strong>Content:</strong> ${post.content}<br>
             <strong>Date and Time Posted:</strong> ${new Date(post.dateTimePosted).toLocaleString()}<br>
-            <strong>Total Likes:</strong> ${post.likes.length}<br>
+            <strong>Total Likes:</strong> ${post.likes.length} <br>
+            <button onclick="likePost('${post.postId}')">Like</button><br>
             <hr>
         `;
         tweetList.appendChild(li);
@@ -68,5 +70,51 @@ async function createPost() {
     } catch (error) {
         console.error("Error creating post:", error);
         alert("An error occurred while creating post. Please try again later.");
+    }
+}
+
+async function likePost(postId) {
+    // Check if the post is already liked by the user
+    const posts = await getPosts();
+    const likedPost = posts.find(post => post.postId === postId && post.likes.includes(username));
+    
+    let requestOptions;
+    if (likedPost) {
+        // Unlike the post if it's already liked
+        requestOptions = {
+            method: "PATCH",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "action": "unlike"
+            })
+        };
+    } else {
+        // Like the post if it's not already liked
+        requestOptions = {
+            method: "PATCH",
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "action": "like"
+            })
+        };
+    }
+
+    try {
+        const response = await fetch(`/api/v1/posts/${postId}`, requestOptions);
+        if (response.ok) {
+            // Refresh the post list after successful like/unlike
+            await displayPosts();
+        } else {
+            alert("Failed to like/unlike post. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error liking/unliking post:", error);
+        alert("An error occurred while liking/unliking post. Please try again later.");
     }
 }
