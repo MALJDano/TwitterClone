@@ -1,12 +1,13 @@
 body {
+    background-color: #073041;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
 .twitter-navbar {
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #073041 ;
+    box-shadow: 0 0 10px #f2f2f257;
     position: fixed;
     top: 0;
     left: 0;
