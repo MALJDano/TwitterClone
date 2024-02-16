@@ -6,6 +6,7 @@ console.log(token);
 
 window.onload = async () => {
     await displayPosts();
+    await displayAccounts();
 }
 
 async function displayPosts() {
@@ -17,7 +18,6 @@ async function displayPosts() {
     tweetList.innerHTML = "";
 
     posts.reverse();
-
     // Iterate over each post and create HTML elements to display them
     posts.forEach(post => {
         const li = document.createElement("li");
@@ -30,7 +30,8 @@ async function displayPosts() {
             
             <strong>Total Likes:</strong> ${post.likes.length} <br>
              ${new Date(post.dateTimePosted).toLocaleString()}<br>
-            <button class="like-button" onclick="likePost('${post.postId}')">Like</button><br>
+            <button class="like-button" onclick="likePost('${post.postId}')">
+            <span>&#10084;</span>   Like</button><br>
 
 
             <hr>
@@ -55,10 +56,16 @@ async function getPosts() {
     });
     const posts = await response.json();
     return posts;
+
 }
+
+
+
 
 async function createPost() {
     const tweetText = document.getElementById('tweet-text').value;
+    document.getElementById("tweet-text").value = "";
+
 
     const raw = JSON.stringify({
         "content": tweetText
@@ -76,8 +83,7 @@ async function createPost() {
     try {
         const response = await fetch("/api/v1/posts", requestOptions);
         if (response.ok) {
-            alert("Post created successfully!");
-            // Refresh the post list after successful creation
+
             await displayPosts();
         } else {
             alert("Failed to create post. Please try again.");
@@ -87,6 +93,7 @@ async function createPost() {
         alert("An error occurred while creating post. Please try again later.");
     }
 }
+
 
 async function likePost(postId) {
     // Check if the post is already liked by the user
@@ -133,3 +140,57 @@ async function likePost(postId) {
         alert("An error occurred while liking/unliking post. Please try again later.");
     }
 }
+async function displayAccounts() {
+    const users = await getUsers();
+    const followList = document.getElementById("follow-list");
+
+    // Clear existing content in the follow list
+    followList.innerHTML = "";
+
+    // Iterate over each user and create HTML elements to display them
+    users.forEach(user => {
+        // Check if the user is not the logged-in user
+        if (user !== username) {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <span>${user}</span>
+                <button onclick="followUser('${user}')">Follow</button>
+            `;
+            followList.appendChild(li);
+        }
+    });
+}
+
+async function getUsers() {
+    const response = await fetch("/api/v1/users", {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
+    const users = await response.json();
+    return users;
+}
+
+async function followUser(followingUsername) {
+    const requestOptions = {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    };
+
+    try {
+        const response = await fetch(`/api/v1/users/${username}/following/${followingUsername}`, requestOptions);
+        if (response.ok) {
+            // Refresh the follow list after successful follow
+            await displayAccounts();
+        } else {
+            alert("Failed to follow user. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error following user:", error);
+        alert("An error occurred while following user. Please try again later.");
+    }
+}
+

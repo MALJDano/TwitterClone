@@ -13,7 +13,7 @@
         
         <!-- Sidebar -->
         <div class="sidebar">
-            <i class="fab fa-twitter" style="font-size: 36px; color: #1da1f2; margin-bottom: 20px;"></i>
+            <img src="assets/img/iTrendLogo.png" alt="iTrend Logo" style="width: 40px; height: 36px; margin-bottom: 20px;">
             <div class="sidebarOption active">
                 <span class="material-icons">home</span>
                 <h2>Home</h2>
@@ -30,6 +30,12 @@
                 <span class="material-icons"> create </span>
                 <h2>Post</h2>
             </div>
+            <br><br><br>
+            <br><br>          
+            <div id="follow-form"> 
+                <h2>Who to Follow</h2>
+                <ul id="follow-list"> </ul>
+            </div>
 
 
             
@@ -40,13 +46,13 @@
         <!--feed -->
         <div class="content">
             <div class="profile-header">
-                <h1>User Profile</h1>
-                <a href="login.html" style="text-decoration: none; color: #1da1f2;">Log Out</a>
+                <h1>HOME</h1>
+                <a href="login.html" style="text-decoration: none; color:  #1f2029;">Log Out</a>
             </div>
 
             <div id="tweet-form">
                 <textarea id="tweet-text" placeholder="What's happening?" maxlength="280"></textarea>
-                <button type="submit" onclick="createPost()">Tweet</button>
+                <button type="click" onclick="createPost()">Tweet</button>
             </div>
 
             <div id="tweet-list">
