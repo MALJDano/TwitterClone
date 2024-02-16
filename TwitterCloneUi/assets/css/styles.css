@@ -164,3 +164,46 @@ body {
     background-color: #1da1f2;
     color: #000000;
 }
+
+.trending-hashtags {
+    margin-top: 2rem;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+
+  .trending-hashtags h2 {
+    margin-top: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .hashtag-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .hashtag-list li {
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hashtag-list a {
+    display: block;
+    padding: 0.25rem 0.5rem;
+    background-color: #e5e5e5;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #333;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .hashtag-list a:hover {
+    background-color: #d5d5d5;
+  }
