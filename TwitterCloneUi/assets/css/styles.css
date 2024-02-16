@@ -188,6 +188,13 @@ body {
     margin-top: 1rem;
   }
 
+  .hashtag-list h3{
+    font-size: 10px;
+    font-weight: 4px;
+    color: #333;
+
+  }
+
   .hashtag-list li {
     margin-right: 1rem;
     margin-bottom: 0.5rem;
