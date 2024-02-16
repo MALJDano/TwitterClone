@@ -14,7 +14,7 @@ body {
 
 .sidebar {
     flex: 0 0 250px;
-    background-color: #fff;
+    background-color: #daf6ff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     padding: 20px;
@@ -41,7 +41,7 @@ body {
 
 .sidebarOption .material-icons {
     margin-right: 10px;
-    color: #1da1f2;
+    color: #1ED4C5;
 }
 
 .sidebarOption h2 {
@@ -78,7 +78,7 @@ body {
 }
 
 #tweet-text {
-    width: 100%;
+    width: 97.5%;
     padding: 10px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -91,7 +91,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
-    background-color: #1da1f2;
+    background-color: #1ED4C5;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -99,7 +99,8 @@ body {
 }
 
 #tweet-form button:hover {
-    background-color: #1ED4C5;
+    background-color: #1da1f2;
+    color: #000;
 }
 
 #tweet-list {
@@ -167,8 +168,8 @@ body {
 
 .trending-hashtags {
     margin-top: 2rem;
-    background-color: #fff;
-    border: 1px solid #e5e5e5;
+    background-color: #daf6ff;
+    border: 1px solid #daf6ff;
     border-radius: 5px;
     padding: 1rem;
   }
