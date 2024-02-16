@@ -55,10 +55,16 @@ async function getPosts() {
     });
     const posts = await response.json();
     return posts;
+
 }
+
+
+
 
 async function createPost() {
     const tweetText = document.getElementById('tweet-text').value;
+    document.getElementById("tweet-text").value = "";
+
 
     const raw = JSON.stringify({
         "content": tweetText
@@ -76,8 +82,7 @@ async function createPost() {
     try {
         const response = await fetch("/api/v1/posts", requestOptions);
         if (response.ok) {
-            alert("Post created successfully!");
-            // Refresh the post list after successful creation
+
             await displayPosts();
         } else {
             alert("Failed to create post. Please try again.");
@@ -87,6 +92,7 @@ async function createPost() {
         alert("An error occurred while creating post. Please try again later.");
     }
 }
+
 
 async function likePost(postId) {
     // Check if the post is already liked by the user
