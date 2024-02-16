@@ -10,23 +10,38 @@ window.onload = async () => {
 
 async function displayPosts() {
     const posts = await getPosts();
+
     const tweetList = document.getElementById("tweet-list");
 
     // Clear existing content in the tweet list
     tweetList.innerHTML = "";
 
+    posts.reverse();
+
     // Iterate over each post and create HTML elements to display them
     posts.forEach(post => {
         const li = document.createElement("li");
         li.innerHTML = `
-            <strong>Post ID:</strong> ${post.postId}<br>
-            <strong>Posted by:</strong> ${post.postedBy}<br>
-            <strong>Content:</strong> ${post.content}<br>
-            <strong>Date and Time Posted:</strong> ${new Date(post.dateTimePosted).toLocaleString()}<br>
+        <b>${post.postedBy}</b><br>
+        @${post.postedBy}<br><br>
+
+
+            ${post.content}<br><br>
+            
             <strong>Total Likes:</strong> ${post.likes.length} <br>
-            <button onclick="likePost('${post.postId}')">Like</button><br>
+             ${new Date(post.dateTimePosted).toLocaleString()}<br>
+            <button class="like-button" onclick="likePost('${post.postId}')">Like</button><br>
+
+
             <hr>
-        `;
+        `;  
+        const profilePicture = document.createElement('img');
+        profilePicture.src = 'https://cdn3.iconfinder.com/data/icons/business-round-flat-vol-1-1/36/user_account_profile_avatar_person_student_male-512.png';
+        profilePicture.alt = 'Profile Picture';
+        profilePicture.classList.add('post__profilePicture');
+        profilePicture.style.width = '50px'; 
+        profilePicture.style.height = '50px';
+        tweetList.appendChild(profilePicture);
         tweetList.appendChild(li);
     });
 }
