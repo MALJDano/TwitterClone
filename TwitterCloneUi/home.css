@@ -48,11 +48,12 @@ s
 .header-content {
     display: flex;
     align-items: center; 
+
 }
 
 .left-header {
     color: whitesmoke;
-    font-size: 20px;
+    font-size: 25px;
     font-family: 'Arial', sans-serif;
     font-weight: 500;
     margin-top: 5rem;
@@ -68,6 +69,46 @@ s
 .logo {
     max-width: 100px;
 }
+
+.threads-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.threads {
+    max-width: 130px;
+    margin-left: 2rem;
+}
+
+.threads-info {
+    display: flex;
+    align-items: center; 
+}
+
+.threads-info h2 {
+    color: white;
+    font-size: 18px;
+    font-weight: 10px; 
+    margin-right: 10px;
+    margin-left: auto;
+}
+
+.follow-btn {
+    background-color: #1DA1F2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.follow-btn:hover {
+    background-color: #0E85D3;
+}
+
 
 
 
