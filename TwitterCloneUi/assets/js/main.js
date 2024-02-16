@@ -153,9 +153,9 @@ async function displayAccounts() {
         if (user !== username) {
             const li = document.createElement("li");
             li.innerHTML = `
-                <span>${user}</span>
-                <button onclick="followUser('${user}')">Follow</button>
-                <button onclick="unfollowUser('${user}')">Unfollow</button>
+                <span>${user}</span> <br>
+                <button class="like-button" onclick="followUser('${user}')">Follow</button>
+                <button class="like-button" onclick="unfollowUser('${user}')">Unfollow</button>
             `;
             followList.appendChild(li);
         }
@@ -185,7 +185,8 @@ async function followUser(followingUsername) {
         const response = await fetch(`/api/v1/users/${username}/following/${followingUsername}`, requestOptions);
         if (response.ok) {
             // Refresh the page after successful follow
-            location.reload();
+            await displayPosts();
+            await displayAccounts();
         } else {
             alert("Failed to follow user. Please try again.");
         }
@@ -207,7 +208,8 @@ async function unfollowUser(followingUsername) {
         const response = await fetch(`/api/v1/users/${username}/following/${followingUsername}`, requestOptions);
         if (response.ok) {
             // Refresh the page after successful unfollow
-            location.reload();
+            await displayPosts();
+            await displayAccounts();
         } else {
             alert("Failed to unfollow user. Please try again.");
         }
