@@ -32,5 +32,42 @@ body {
 }
 
 .navbar-icon:hover {
-    opacity: 0.7;
+    opacity: 0.7; 
 }
+s
+/* SEARCH */
+
+.design-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
+.header-content {
+    display: flex;
+    align-items: center; 
+}
+
+.left-header {
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: 'Arial', sans-serif;
+    font-weight: 500;
+    margin-top: 5rem;
+    margin-left: 4rem;
+}
+ 
+
+.logo-container {
+    margin-top: 3rem;
+    margin-left: 55rem; 
+}
+
+.logo {
+    max-width: 100px;
+}
+
+
+
