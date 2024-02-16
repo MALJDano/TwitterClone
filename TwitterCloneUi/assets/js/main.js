@@ -155,6 +155,7 @@ async function displayAccounts() {
             li.innerHTML = `
                 <span>${user}</span>
                 <button onclick="followUser('${user}')">Follow</button>
+                <button onclick="unfollowUser('${user}')">Unfollow</button>
             `;
             followList.appendChild(li);
         }
@@ -191,6 +192,28 @@ async function followUser(followingUsername) {
     } catch (error) {
         console.error("Error following user:", error);
         alert("An error occurred while following user. Please try again later.");
+    }
+}
+
+async function unfollowUser(followingUsername) {
+    const requestOptions = {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    };
+
+    try {
+        const response = await fetch(`/api/v1/users/${username}/following/${followingUsername}`, requestOptions);
+        if (response.ok) {
+            // Refresh the follow list after successful unfollow
+            await displayAccounts();
+        } else {
+            alert("Failed to unfollow user. Please try again.");
+        }
+    } catch (error) {
+        console.error("Error unfollowing user:", error);
+        alert("An error occurred while unfollowing user. Please try again later.");
     }
 }
 
