@@ -30,7 +30,8 @@ async function displayPosts() {
             
             <strong>Total Likes:</strong> ${post.likes.length} <br>
              ${new Date(post.dateTimePosted).toLocaleString()}<br>
-            <button class="like-button" onclick="likePost('${post.postId}')">Like</button><br>
+            <button class="like-button" onclick="likePost('${post.postId}')">
+            <span>&#10084;</span>Like</button><br>
 
 
             <hr>
