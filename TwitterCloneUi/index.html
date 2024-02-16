@@ -1,26 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Social Media Clone</title>
-        <link rel="stylesheet" href="assets/css/styles.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <i class="fab fa-twitter" style="font-size: 36px; color: #1da1f2; margin-bottom: 20px;"></i>
+            <div class="sidebarOption active">
+                <span class="material-icons">home</span>
+                <h2>Home</h2>
+            </div>
+            <div class="sidebarOption">
+                <span class="material-icons"> search </span>
+                <h2>Explore</h2>
+            </div>
+            <div class="sidebarOption" >
+                <span class="material-icons"> perm_identity </span>
+                <h2>Profile</h2>
+            </div>
+            <div class="sidebarOption">
+                <span class="material-icons"> create </span>
+                <h2>Post</h2>
+            </div>
 
-    <body>
-        <script src="assets/js/main.js"> </script>
-        <div id="profile">
-            <h1>User Profile</h1>
-            <div id="user-info"></div>
+
+            
+            
+        </div>
+        <!-- End Sidebar -->
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="profile-header">
+                <h1>User Profile</h1>
+                <a href="login.html" style="text-decoration: none; color: #1da1f2;">Log Out</a>
+            </div>
+
             <div id="tweet-form">
                 <textarea id="tweet-text" placeholder="What's happening?"></textarea>
                 <button type="submit" onclick="createPost()">Tweet</button>
-                <a href="login.html">Log Out</a>
             </div>
-            <div id="timeline">
-                <h2>Timeline</h2>
-                <ul id="tweet-list"></ul>
+
+            <div id="tweet-list">
+                <!-- Tweets will be dynamically added here -->
             </div>
         </div>
-    </body>
+        <!-- End Main content -->
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="assets/js/main.js"></script>
+</body>
 </html>
