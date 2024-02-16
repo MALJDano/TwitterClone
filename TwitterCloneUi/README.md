@@ -27,7 +27,7 @@ In this README, we will reflect on the process and outcomes of our website proje
 - **Unique Design Elements:** Incorporated unique design elements to differentiate our website while maintaining familiarity for users.
 
 ### Deployment
-- **GitHub Repository:** Deployed our project using GitHub Pages for easy access and sharing.
+- **Netlify:** Deployed our project using Netlify for easy access and sharing.
 
 ## Team Collaboration
 
